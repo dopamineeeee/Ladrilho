@@ -1,7 +1,7 @@
 const url = `https://picsum.photos/v2/list`
 const body = document.querySelector("body");
-const header = document.querySelector("header");
 const main = document.querySelector("main");
+const btn_svg = document.querySelectorAll("svg")
 
 
 
@@ -34,7 +34,7 @@ function filtrarDados(dados) {
 function estilizarMural() {
     body.className = "flex items-center justify-center";
     main.classList.add("columns-3", "gap-5", "*:mt-4", "ml-20", "mr-20", "mb-5");   
-    header.className = "absolute top-5 right-5 text-2xl cursor-pointer";
+    
 
 }
 
@@ -51,12 +51,13 @@ function inserirIMG( url) {
 
 
 
-header.addEventListener("click", () => {
 
-    body.classList.toggle("bg-black");
-    body.classList.toggle("text-white");
+function modoescuro() {
 
-    body.classList.toggle("bg-white");
-    body.classList.toggle("text-black");
+console.log(btn_svg)
 
-});
+btn_svg[]
+
+}
+
+modoescuro()
