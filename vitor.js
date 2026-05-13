@@ -2,7 +2,11 @@ const url = `https://picsum.photos/v2/list`
 const body = document.querySelector("body");
 const main = document.querySelector("main");
 const header = document.querySelector("header");
-const icon = document.querySelector("img");
+const btn_svg = document.querySelectorAll("svg")
+
+
+
+
 
 // criação de função assíncrona para buscar os dados da URL
 
@@ -29,11 +33,11 @@ function filtrarDados(dados) {
 }
 
 function estilizarMural() {
-    body.className = "flex flex-col items-center justify-center transition px-5 pt-16"
-    main.classList.add("columns-1", "md:columns-2","lg:columns-3", "gap-5", "*:mt-5")
-    icon.className = "size-16 houver:cursor-pointer houver:scale-125"
-    header.className = "w-full flex justify-end my-5"
-
+    // body.className = "flex items-center justify-center";
+    header.className = "size-16 w-full mb-2.5 border-b-2 border-black bg-white"
+    main.classList.add("columns-3", "gap-5", "*:mt-4", "ml-20", "mr-20", "mb-5","relative"); 
+    
+    
 }
 
 estilizarMural();
@@ -49,18 +53,35 @@ function inserirIMG( url) {
 
 
 
-function alterarModo() {
-    icon.addEventListener("click", (event) => {
-        body.classList.toggle("tema-dark");
-        if(body.classList.contains("tema-dark")) {
-            icon.classList.add("invert");
-            icon.src = "./assets/img/sun-solid-full.svg";
-           
-        } else {
-            icon.classList.remove("invert");
-            icon.src = "./assets/img/moon-solid-full.svg";
-        }
-    });
+
+function modoescuro() {
+
+console.log(btn_svg)
+
+btn_svg[0].classList.add("size-16","absolute","right-0")
+btn_svg[1].classList.add("size-16","absolute","right-0", "hidden")
+
+btn_svg[0].addEventListener("click",() =>{
+
+    if(!btn_svg[0].classList.contains("hidden")){
+
+        btn_svg[0].classList.add("hidden")
+        btn_svg[1].classList.remove("hidden")
+        body.style.backgroundColor = "black"
+    }
+
+})
+btn_svg[1].addEventListener("click",() =>{
+
+    if(!btn_svg[1].classList.contains("hidden")){
+        btn_svg[1].classList.add("hidden")
+        btn_svg[0].classList.remove("hidden")
+        body.style.backgroundColor = "white"
+    }
+
+})
+
+
 }
 
-alterarModo(); 
+modoescuro()
